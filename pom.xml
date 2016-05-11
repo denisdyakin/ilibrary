@@ -6,6 +6,7 @@
 
     <groupId>ru.denisdyakin</groupId>
     <artifactId>ilibrary</artifactId>
+    <packaging>war</packaging>
     <version>1.0</version>
 
     <properties>
