@@ -1,0 +1,35 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                 http://www.springframework.org/schema/security
+                 http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+
+    <http auto-config="true" use-expressions="true">
+        <intercept-url pattern="/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+        <http-basic />
+        <logout logout-success-url="/" />
+        <csrf />
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="pass" authorities="ROLE_ADMIN" />
+                <user name="denis" password="dpass" authorities="ROLE_USER" />
+                <user name="elena" password="epass" authorities="ROLE_USER" />
+                <user name="katya" password="kpass" authorities="ROLE_USER" />
+            </user-service>
+        </authentication-provider>
+
+        <!--for input user with using datasource-->
+        <!--<authentication-provider>-->
+            <!--<jdbc-user-service-->
+                    <!--data-source-ref="dataSource"-->
+                    <!--users-by-username-query="select u.name as username, u.password as password, true as enabled from user u where u.name=?"-->
+                    <!--authorities-by-username-query="select u1.name, u2.role from user u1, USER_AUTHORIZATION u2 where u1.name = ? and u1.name = u2.name" />-->
+        <!--</authentication-provider>-->
+    </authentication-manager>
+
+</beans:beans>

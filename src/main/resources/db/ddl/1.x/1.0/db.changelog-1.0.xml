@@ -1,0 +1,98 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet id="1" author="denis">
+
+        <createTable tableName="user">
+            
+            <column name="name" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false" unique="true" />
+            </column>
+            
+            <column name="password" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="book">
+            <column name="isn" type="NUMERIC">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            
+            <column name="author" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="user_name" type="varchar(50)" defaultValue="0">
+                <constraints foreignKeyName="fk_user" references="user(name)" nullable="true" />
+            </column>
+            
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="denis" id="loadData">
+
+        <insert tableName="user">
+            <column name="name" value="admin" />
+            <column name="password" value="password" />
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="denis" />
+            <column name="password" value="passworddenis" />
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="elena" />
+            <column name="password" value="passwordelena" />
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="katya" />
+            <column name="password" value="passwordkatya" />
+        </insert>
+
+
+        <insert tableName="book">
+            <column name="isn" value="1" />
+            <column name="author" value="Бредберри" />
+            <column name="name" value="451 градус по Фаренгейту" />
+            <column name="user_name" value="denis" />
+        </insert>
+        <insert tableName="book">
+            <column name="isn" value="2" />
+            <column name="author" value="Булгаков" />
+            <column name="name" value="Мастер и Маргарита" />
+            <column name="user_name" value="NULL" />
+        </insert>
+        <insert tableName="book">
+            <column name="isn" value="3" />
+            <column name="author" value="Бредберри" />
+            <column name="name" value="Марсианские хроники" />
+            <column name="user_name" value="admin" />
+        </insert>
+        <insert tableName="book">
+            <column name="isn" value="4" />
+            <column name="author" value="Гоголь" />
+            <column name="name" value="Мертвые души" />
+            <column name="user_name" value="elena" />
+        </insert>
+        <insert tableName="book">
+            <column name="isn" value="5" />
+            <column name="author" value="Пушкин" />
+            <column name="name" value="Капитанская дочка" />
+            <column name="user_name" value="katya" />
+        </insert>
+        <insert tableName="book">
+            <column name="isn" value="6" />
+            <column name="author" value="Пушкин" />
+            <column name="name" value="Руслан и Людмила" />
+            <column name="user_name" value="NULL" />
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
