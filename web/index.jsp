@@ -21,8 +21,8 @@
 
 <div class="headercontent" align="center" >
 
-  <a href="/book/books" class="buttonhead">Книги</a>
-  <a href="/user/users" class="buttonhead">Пользователи</a>
+  <a href="${pageContext.request.contextPath}/book" class="buttonhead">Книги</a>
+  <a href="${pageContext.request.contextPath}/user" class="buttonhead">Пользователи</a>
 
 </div>
 

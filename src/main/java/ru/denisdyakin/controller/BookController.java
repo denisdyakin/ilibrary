@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.*;
  * Created by denisdyakin on 08/05/16.
  */
 @Controller
-@RequestMapping("/book")
 public class BookController {
 
-    @RequestMapping(value = "/books", method = RequestMethod.GET)
+    @RequestMapping(value = "/book", method = RequestMethod.GET)
     public String books(ModelMap model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
