@@ -25,21 +25,8 @@
     </bean>
 
 
-    <bean id="bookControllerTransaction"
-          class="ru.denisdyakin.controller.BookControllerTransaction">
-        <property name="dataSource" ref="dataSource" />
-        <property name="transactionManager" ref="transactionManager" />
-    </bean>
-
-    <bean id="userControllerTransaction"
-          class="ru.denisdyakin.controller.UserControllerTransaction">
-        <property name="dataSource" ref="dataSource" />
-        <property name="transactionManager" ref="transactionManager" />
-    </bean>
-
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />
     </bean>
-
 
 </beans>
