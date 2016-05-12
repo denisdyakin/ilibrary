@@ -4,7 +4,7 @@ var loadcount;
 
 $(document).ready(function(){
     $.ajax({
-        url: 'http://localhost:8080/getallusers',
+        url: '${pageContext.request.contextPath}/getallusers',
         dataType : "json",
         success: function (response) {
             var tab=$('#users tbody');
@@ -18,7 +18,7 @@ $(document).ready(function(){
                     + ' </td> </tr>');
                 loadcount = i+1;
             });
-            nextjsonresponse = 'http://localhost:8080/getusers?start=' + loadcount + '&offset=' + loadoffset;
+            nextjsonresponse = '${pageContext.request.contextPath}/getusers?start=' + loadcount + '&offset=' + loadoffset;
         }
     });
 
@@ -39,7 +39,7 @@ $(document).ready(function(){
                         + ' </td> </tr>');
                     loadcount = loadcount + 1;
                 });
-                nextjsonresponse = 'http://localhost:8080/getusers?start=' + loadcount + '&offset=' + loadoffset;
+                nextjsonresponse = '${pageContext.request.contextPath}/getusers?start=' + loadcount + '&offset=' + loadoffset;
             }
         });}
 
@@ -49,7 +49,7 @@ $(document).ready(function(){
             dataType : "json",
             success: function (response) {
 
-                nextjsonresponse = 'http://localhost:8080/getusers?start=' + loadcount + '&offset=' + loadoffset;
+                nextjsonresponse = '${pageContext.request.contextPath}/getusers?start=' + loadcount + '&offset=' + loadoffset;
             }
         });
     });
@@ -59,7 +59,7 @@ $(document).ready(function(){
         {
             var id = $(this).attr('user_id');
             $.ajax({
-                url: 'http://localhost:8080/deleteuser?name=' + id,
+                url: '${pageContext.request.contextPath}/deleteuser?name=' + id,
                 dataType : "json",
                 success: function (response) {
                     loadcount = loadcount - 1;
@@ -99,7 +99,7 @@ $(document).ready(function(){
         if (nameAddVal != '' && passwordAddVal != '')
         {
             $.ajax({
-                url: 'http://localhost:8080/adduser?name=' + nameAddVal + '&password=' + passwordAddVal,
+                url: '${pageContext.request.contextPath}/adduser?name=' + nameAddVal + '&password=' + passwordAddVal,
                 dataType: "json",
                 error: function (jqXHR, textStatus, errorThrown){
                     if (jqXHR.status == '200')

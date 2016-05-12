@@ -4,11 +4,11 @@ var loadcount = 0;
 
 $(document).ready(function(){
     $.ajax({
-        url: 'http://localhost:8080/getbooks',
+        url: '${pageContext.request.contextPath}/getbooks',
         dataType : "json",
         success: function (response) {
             listContent(response);
-            nextjsonresponse = 'http://localhost:8080/getbooks?start=' + loadcount + '&offset=' + loadoffset;
+            nextjsonresponse = '${pageContext.request.contextPath}/getbooks?start=' + loadcount + '&offset=' + loadoffset;
         }
     });
 
@@ -52,7 +52,7 @@ $(document).ready(function(){
             dataType : "json",
             success: function (response) {
                listContent(response);
-                nextjsonresponse = 'http://localhost:8080/getbooks?start=' + loadcount + '&offset=' + loadoffset;
+                nextjsonresponse = '${pageContext.request.contextPath}/getbooks?start=' + loadcount + '&offset=' + loadoffset;
             }
         });}
 
@@ -62,7 +62,7 @@ $(document).ready(function(){
             dataType : "json",
             success: function (response) {
                 listContent(response);
-                nextjsonresponse = 'http://localhost:8080/getbooks?start=' + loadcount + '&offset=' + loadoffset;
+                nextjsonresponse = '${pageContext.request.contextPath}/getbooks?start=' + loadcount + '&offset=' + loadoffset;
             }
         });
     });
@@ -88,7 +88,7 @@ $(document).ready(function(){
     $('#books').delegate('#takeButton', 'click', function(e) {
         var isn = $(this).attr('book_id_of');
         $.ajax({
-            url: 'http://localhost:8080/updateownerofbook?isn=' + isn + '&user_name=' + currentUserName,
+            url: '${pageContext.request.contextPath}/updateownerofbook?isn=' + isn + '&user_name=' + currentUserName,
             dataType : "json",
             success: function (response) {
                 $('[book_id_of=' + isn +']').html(decodeURIComponent(escape('Вернуть')));
@@ -100,7 +100,7 @@ $(document).ready(function(){
     $('#books').delegate('#returnButton', 'click', function(e) {
         var isn = $(this).attr('book_id_of');
         $.ajax({
-            url: 'http://localhost:8080/updateownerofbook?isn=' + isn ,
+            url: '${pageContext.request.contextPath}/updateownerofbook?isn=' + isn ,
             dataType : "json",
             success: function (response) {
                 $('[book_id_of=' + isn +']').html(decodeURIComponent(escape('Взять')));
@@ -134,7 +134,7 @@ $(document).ready(function(){
         var authorAddVal = $('#authorAddVal').val();
         var nameAddVal = $('#nameAddVal').val();
         $.ajax({
-            url: 'http://localhost:8080/addbook?isn=' + isnAddVal + '&author=' + authorAddVal + '&name=' + nameAddVal,
+            url: '${pageContext.request.contextPath}/addbook?isn=' + isnAddVal + '&author=' + authorAddVal + '&name=' + nameAddVal,
             dataType: "json",
             error: function (jqXHR, textStatus, errorThrown){
                 if (jqXHR.status == '200')
