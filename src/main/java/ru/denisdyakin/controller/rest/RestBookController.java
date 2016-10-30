@@ -22,8 +22,7 @@ public class RestBookController {
 
     @RequestMapping(value = "/getbooks")
     public List<Book> getBooksWithLimits(@RequestParam(value = "start", required = false, defaultValue = "0") String start,
-                                         @RequestParam(value = "offset", required = false, defaultValue = "5") String offset)
-    {
+                                         @RequestParam(value = "offset", required = false, defaultValue = "5") String offset) {
         List<Book> books = bookDAO.findBooksWith(Integer.parseInt(start), Integer.parseInt(offset));
         return books;
     }
@@ -38,16 +37,14 @@ public class RestBookController {
     @RequestMapping(value = "/addbook")
     public Book addBook(@RequestParam(value = "isn", required = true) String isn,
                            @RequestParam(value = "author", required = true) String author,
-                           @RequestParam(value = "name", required = true) String name)
-    {
+                           @RequestParam(value = "name", required = true) String name) {
         return bookDAO.insert(new Book(Long.parseLong(isn), author, name, null));
     }
 
     @Transactional
     @RequestMapping(value = "/updateownerofbook")
     public Book takeBook(@RequestParam(value = "isn", required = true) String isn,
-                        @RequestParam(value = "user_name", required = false) String user_name)
-    {
+                        @RequestParam(value = "user_name", required = false) String user_name) {
         Book oldBook = bookDAO.findByIsn(Long.parseLong(isn));
         Book newBook = new Book(oldBook.getIsn(), oldBook.getName(), oldBook.getAuthor(), user_name);
         return bookDAO.update(oldBook, newBook);

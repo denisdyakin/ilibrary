@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class UserController {
 
-    @RequestMapping(name = "/user", method = RequestMethod.GET)
-    public String users(ModelMap model)
-    {
+    @RequestMapping(name = "/user")
+    public String users() {
         return "user/users";
     }
 

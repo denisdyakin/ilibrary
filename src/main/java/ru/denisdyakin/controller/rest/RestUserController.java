@@ -21,15 +21,13 @@ public class RestUserController {
 
     @RequestMapping(value = "/getusers")
     public List<User> getUsers(@RequestParam(value = "start", required = false, defaultValue = "0") String start,
-                               @RequestParam(value = "offset", required = false, defaultValue = "5") String offset)
-    {
+                               @RequestParam(value = "offset", required = false, defaultValue = "5") String offset) {
         List<User> users = userDAO.findUsersWith(Integer.parseInt(start), Integer.parseInt(offset));
         return users;
     }
 
     @RequestMapping(value = "/getallusers")
-    public List<User> getUsers()
-    {
+    public List<User> getUsers() {
         List<User> users = userDAO.findAll();
         return users;
     }
@@ -37,17 +35,14 @@ public class RestUserController {
     @Transactional
     @RequestMapping(value = "/adduser")
     public User addUser(@RequestParam(value = "name", required = true) String name,
-                        @RequestParam(value = "password", required = true) String password)
-    {
+                        @RequestParam(value = "password", required = true) String password) {
         return userDAO.insert(new User(name, password));
     }
 
     @Transactional
     @RequestMapping(value = "/deleteuser")
-    public User removeUser(@RequestParam(value = "name", required = true) String name)
-    {
+    public User removeUser(@RequestParam(value = "name", required = true) String name) {
         return userDAO.remove(new User(name, null));
     }
-
 
 }

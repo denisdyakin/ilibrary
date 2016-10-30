@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface BookDAO {
 
-    public Book insert(Book book);
-    public Book findByIsn(long isn);
-    public List<Book> findBooksWith(int start, int offset);
-    public Book updateOwner(long isn, String user_name);
-    public Book update(Book oldBook, Book newBook);
-    public void removeByIsn(long isn);
+    Book insert(Book book);
+    Book findByIsn(long isn);
+    List<Book> findBooksWith(int start, int offset);
+    Book updateOwner(long isn, String user_name);
+    Book update(Book oldBook, Book newBook);
+    void removeByIsn(long isn);
 
 }

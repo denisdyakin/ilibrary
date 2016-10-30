@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by denisdyakin on 10/05/16.
  */
 @Controller
-@RequestMapping(value = "/")
 public class IndexController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String getIndex(ModelMap model)
+    @RequestMapping("/")
+    public String getIndex()
     {
         return "/index";
     }
