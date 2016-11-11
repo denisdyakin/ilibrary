@@ -28,7 +28,6 @@ public class ControllerTest {
         Long isn = 22L;
         String author = "Normal author";
         String name = "Normal name";
-        Book rightBook = new Book(isn, name, author, null);
 
         Long badIsn = 1L;
         String badAuthor = "Bad author name ndmsndamnd,man,smnd,mand,mnad,mnam,dmandm,and,m";
@@ -54,6 +53,8 @@ public class ControllerTest {
         } catch (Exception ex) {
             System.out.println("wrong name");
         }
+
+        controller.addBook("32", "", "Book's name");
 
         List<Book> list = template.query("select * from book", new BookRowMapper());
 

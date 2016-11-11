@@ -2,6 +2,7 @@ package ru.denisdyakin.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,9 @@ public class RestBookController {
     public Book addBook(@RequestParam(value = "isn", required = true) String isn,
                            @RequestParam(value = "author", required = true) String author,
                            @RequestParam(value = "name", required = true) String name) {
+        if (StringUtils.isEmpty(author) || StringUtils.isEmpty(name)) {
+            return null;
+        }
         return bookDAO.insert(new Book(Long.parseLong(isn), author, name, null));
     }
 
