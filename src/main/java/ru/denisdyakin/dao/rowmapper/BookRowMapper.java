@@ -6,9 +6,6 @@ import ru.denisdyakin.models.Book;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by denisdyakin on 07/05/16.
- */
 @SuppressWarnings("rawtypes")
 public class BookRowMapper implements RowMapper {
 

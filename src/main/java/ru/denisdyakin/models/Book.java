@@ -1,9 +1,5 @@
 package ru.denisdyakin.models;
 
-
-/**
- * Created by denisdyakin on 06/05/16.
- */
 public class Book {
 
     private long isn;

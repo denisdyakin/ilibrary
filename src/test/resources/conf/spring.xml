@@ -3,11 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userDAO"
-          class="ru.denisdyakin.dao.impl.UserDAOImpl">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
-
     <bean id="bookDAO"
           class="ru.denisdyakin.dao.impl.BookDAOImpl">
         <property name="dataSource" ref="dataSource" />

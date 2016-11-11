@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by denisdyakin on 06/05/16.
- */
 public class BookDAOImpl extends JdbcDaoSupport implements BookDAO {
 
     public Book insert(Book book) {

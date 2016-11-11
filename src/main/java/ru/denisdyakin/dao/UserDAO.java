@@ -4,9 +4,6 @@ import ru.denisdyakin.models.User;
 
 import java.util.List;
 
-/**
- * Created by denisdyakin on 06/05/16.
- */
 public interface UserDAO {
 
     public User insert(User user);

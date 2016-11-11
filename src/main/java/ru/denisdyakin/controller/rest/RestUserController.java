@@ -10,9 +10,6 @@ import ru.denisdyakin.models.User;
 
 import java.util.List;
 
-/**
- * Created by denisdyakin on 09/05/16.
- */
 @RestController
 public class RestUserController {
 

@@ -4,9 +4,6 @@ import ru.denisdyakin.models.Book;
 
 import java.util.List;
 
-/**
- * Created by denisdyakin on 06/05/16.
- */
 public interface BookDAO {
 
     Book insert(Book book);

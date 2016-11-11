@@ -10,10 +10,6 @@ import ru.denisdyakin.models.Book;
 
 import java.util.List;
 
-/**
- * Created by denisdyakin on 08/05/16.
- */
-
 @RestController
 public class RestBookController {
 

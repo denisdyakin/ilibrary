@@ -2,9 +2,6 @@ package ru.denisdyakin.models;
 
 import org.springframework.stereotype.Component;
 
-/**
- * Created by denisdyakin on 06/05/16.
- */
 @Component
 public class User {
     public User() {

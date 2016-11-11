@@ -6,10 +6,6 @@ import ru.denisdyakin.models.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by denisdyakin on 06/05/16.
- */
-
 @SuppressWarnings("rawtypes")
 public class UserRowMapper implements RowMapper {
 

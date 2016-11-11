@@ -10,9 +10,6 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 import javax.sql.DataSource;
 
-/**
- * Created by denisdyakin on 10/05/16.
- */
 @Configuration
 public class DatasourceConfig {
 

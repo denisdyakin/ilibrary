@@ -2,8 +2,8 @@ CREATE CACHED TABLE user(name VARCHAR(50) PRIMARY KEY NOT NULL,
                   password VARCHAR(50) NOT NULL);
 
 CREATE CACHED TABLE book(isn NUMERIC PRIMARY KEY NOT NULL,
-                  author VARCHAR(50) NOT NULL,
-                  name VARCHAR(50) NOT NULL,
+                  author VARCHAR(20) NOT NULL,
+                  name VARCHAR(40) NOT NULL,
                   user_name VARCHAR(50) REFERENCES user(name));
 
 CREATE CACHED TABLE USER_AUTHORIZATION (name VARCHAR(50) PRIMARY KEY NOT NULL, ROLE VARCHAR(50) NOT NULL);
